@@ -4,6 +4,9 @@
 from selenium import webdriver
 from PIL import Image
 from io import BytesIO
+import time\
+
+
 url = 'https://learnopengl.com/Getting-started/OpenGL'
 browser = webdriver.Chrome()  # 实例化一个webdriver
 browser.maximize_window()
@@ -13,8 +16,12 @@ content = browser.find_element_by_id('content')
 location = content.location  # 获取对象的位置
 size = content.size  # 获取对象的大小
 
-# 尝试通过执行一段js脚本让页面滚动到底
+# 通过执行一段js脚本让页面滚动到底
 # 解决截图不全的问题
+for i in range(5):
+    browser.execute_script('window.scrollBy(0,800);')
+    time.sleep(0.5)
+'''
 browser.execute_script("""var delay = 10;//in milliseconds
 var scroll_amount = 10;// in pixels
 var interval;
@@ -31,6 +38,7 @@ function scrollToBottom()
 }
 
 scrollToBottom()""")
+'''
 shotimg = browser.get_screenshot_as_png()  # 截取整个页面
 # browser.quit()
 im = Image.open(BytesIO(shotimg))  # uses PIL library to open image in memory
