@@ -4,6 +4,6 @@
 <br>
 用法：
 >在target.yaml中写好url和element_name，运行crawl_learningopengl.py <br>
-<br><br>
+
 TODO:动态调整pdf的canvas大小以适应不同的内容<br>
 
