@@ -14,15 +14,17 @@ import os
 
 def combine_to_pdf(path):
     ls = os.listdir(path)
-    can = canvas.Canvas('result.pdf',pagesize=B5)
+    can = canvas.Canvas('result.pdf', pagesize=(850, 3345))
     pages = 0
     for img in ls:
         i = Image.open(path+os.sep+img)
         assert isinstance(i, Image.Image)
         w, h = i.size
-        i = i.resize((int(0.5*w), int(0.5*h)), Image.ANTIALIAS)
+        # i = i.resize((int(0.5*w), int(0.5*h)), Image.ANTIALIAS)
+        print('oprating' + path+os.sep+img)
         i.save(path+os.sep+'副本'+img)
         can.drawImage(path+os.sep+'副本'+img, 0, 0)
+        os.remove(path+os.sep+'副本'+img)
         can.showPage()
         pages = pages + 1
     can.save()

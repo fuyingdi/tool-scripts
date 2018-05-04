@@ -41,8 +41,8 @@ def shot_element(url, element_name='content'):
     im = im.crop((left, top, right, bottom))  # defines crop points
 
     filecount = len(os.listdir('image'))
-    im.save('page' + str(filecount+1) + '.png')  # saves new cropped image
-
+    im.save('image'+os.sep + 'page' + str(filecount+1) + '.png')  # saves new cropped image
+    print('save screenshot as %s' % ('image'+os.sep + 'page' + str(filecount+1) + '.png'))
 
 if  __name__ == '__main__':
     # print('fool')
