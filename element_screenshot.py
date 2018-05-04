@@ -5,6 +5,7 @@ from selenium import webdriver
 from PIL import Image
 from io import BytesIO
 import time
+import os
 
 
 def shot_whole_page(url, element_name='content', scroll=5):
@@ -37,8 +38,10 @@ def shot_element(url, element_name='content'):
     top = element_location['y']
     right = element_location['x'] + element_size['width']
     bottom = element_location['y'] + element_size['height']
-    im = im.crop((left, top, right, bottom)) # defines crop points
-    im.save('screenshot.png')  # saves new cropped image
+    im = im.crop((left, top, right, bottom))  # defines crop points
+
+    filecount = len(os.listdir('image'))
+    im.save('page' + str(filecount+1) + '.png')  # saves new cropped image
 
 
 if  __name__ == '__main__':
