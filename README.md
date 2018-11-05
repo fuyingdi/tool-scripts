@@ -8,4 +8,8 @@
 >在target.yaml中写好url和element_name，运行crawl_learningopengl.py <br>
 
 TODO:动态调整pdf的canvas大小以适应不同的内容<br>
+### 2.合并jpg文件并保存为pdf
+因为淘宝买的扫描版轻小说发的是图片文件，合并成一个pdf放kindle上看
+<br>
+用法:把hard code的路径改成你的...
 
